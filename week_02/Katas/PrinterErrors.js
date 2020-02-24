@@ -25,38 +25,23 @@ error_printer(s) => "8/22"
 // My Solution:
 
 function printerError(s) {
-  let denominator = s.length;
+  var denominator = s.length;
+  var counter = 0;
+  var illegal = ["n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-  let illegal = [
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z"
-  ];
-
-  let counter = 0;
-
-  function checkChar(char) {
-    for (i = 0; i < illegal.length; i++) {
-      console.log(illegal[i]);
-      if (char === illegal[i]) {
+  for (i = 0; i < s.length; i++) {
+    for (j = 0; j < illegal.length; j++) {
+      if (s[i] === illegal[j]) {
         counter++;
       }
-    }
-
-    for (i = 0; i < s.length; i++) {
-      checkChar(i);
     }
   }
 
   return counter + "/" + denominator;
+}
+
+// Top rated solution in codewars:
+
+function printerError(s) {
+  return s.match(/[^a-m]/g).length + "/" + s.length;
 }
