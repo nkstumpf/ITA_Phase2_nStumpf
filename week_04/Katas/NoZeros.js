@@ -30,7 +30,7 @@ function noBoringZeros(n) {
     return Number(result)
 }
 
-// Top rated codewawrs solution:
+// Refactored Solution
 
 function noBoringZeros(n) {
     while (n % 10 == 0 && n != 0) { n /= 10; }
